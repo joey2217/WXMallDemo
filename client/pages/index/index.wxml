@@ -1,39 +1,28 @@
 <!--index.wxml-->
 <view class="container">
-    <!-- 用户登录测试 -->
-    <view class="userinfo">
-        <image
-            class="userinfo-avatar"
-            src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
-            background-size="cover"
-        ></image>
-        <view>
-            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击测试登录接口</button>
-            <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
-        </view>
-    </view>
+  <!-- 头像 -->
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!--轮播图  -->
+  <view class="page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="1375" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 商品列表 -->
+  </view>
+<view>
+  <view class="item-list" wx:for="{{items}}"  wx:for-index="index" wx:for-item="item" >
+      <card imgSrc="{{item.imgSrc}}" url="{{item.url}}" title="{{item.title}}" text="{{item.text}}"/>
+  </view>
+</view>
 
-
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
-            <text>上传图片</text>
-        </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image
-                class="uploader-image"
-                src="{{imgUrl}}"
-                mode="aspectFit"
-                bindtap="previewImg"
-            ></image>
-        </view>
-    </view>
-
-
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <navigator url="../addCgi/addCgi" open-type="navigate" class="uploader-text">
-            <text>快速增加 CGI</text>
-        </navigator>
-    </view>
 </view>
