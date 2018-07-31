@@ -1,0 +1,35 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+    <view class="weui-cells">
+        <view class="weui-cell">
+            <view class="weui-cell__hd head">
+                <image src="{{userInfo.avatarUrl}}"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <view class="name">{{userInfo.nickName}}</view>
+                <view class="account" bindtap="bindAccount">
+                    绑定小米账号
+                </view>
+            </view>
+            <view class="weui-cell__ft">
+                <view class="qrCode">
+                    <image src="../../assets/icons/qrcode.png" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells">
+        <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/score/score">
+            <view class="weui-cell__hd">
+                <image src="../../assets/icons/order.png" />
+            </view>
+            <view class="weui-cell__bd">我的订单</view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="../addr/addr">
+            <view class="weui-cell__hd">
+                <image src="../../assets/icons/addr.png" />
+            </view>
+            <view class="weui-cell__bd">我的收货地址</view>
+        </navigator>
+    </view>
+</view>
