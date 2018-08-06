@@ -16,12 +16,12 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ff6700",
-        "navigationBarTitleText": "小米商城",
+        "navigationBarBackgroundColor": "#FFC0CB",
+        "navigationBarTitleText": "商城DEMO",
         "navigationBarTextStyle": "white"
     },
     "tabBar": {
-        "selectedColor": "#ff6700",
+        "selectedColor": "#FFC0CB",
         "borderStyle": "white",
         "backgroundColor": "#fff",
         "list": [
